@@ -1,0 +1,548 @@
+/* =========================================================
+   BuddyLoop – Modern Product UI Theme (CSS only)
+   Drop-in replacement for your current styles.css
+   Works with your existing HTML + JS (no changes required)
+   ========================================================= */
+
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg: #f5f7fb;
+  --text: #0f172a;
+  --muted: #667085;
+
+  --card: rgba(255,255,255,0.72);
+  --cardSolid: #ffffff;
+  --line: rgba(15, 23, 42, 0.10);
+  --line2: rgba(15, 23, 42, 0.06);
+
+  --accent: #6d5efc;      /* modern purple */
+  --accent2: #22c55e;     /* mint */
+  --accent3: #06b6d4;     /* cyan */
+
+  --shadow1: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow2: 0 24px 60px rgba(15, 23, 42, 0.10);
+  --shadow3: 0 2px 10px rgba(15, 23, 42, 0.06);
+
+  --radius: 22px;
+  --radiusSm: 16px;
+
+  --focus: 0 0 0 4px rgba(109, 94, 252, 0.20);
+
+  --container: 1100px;
+}
+
+/* ---------- Base ---------- */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(1100px 600px at 10% -10%, rgba(109, 94, 252, 0.18) 0%, transparent 60%),
+    radial-gradient(950px 550px at 92% -2%, rgba(34, 197, 94, 0.14) 0%, transparent 60%),
+    radial-gradient(950px 550px at 55% 115%, rgba(6, 182, 212, 0.10) 0%, transparent 58%),
+    linear-gradient(180deg, #f8fafc 0%, #f5f7fb 100%);
+}
+main.container{
+  flex: 1;
+}
+
+/* Better text rendering */
+body, button, input, select{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layout ---------- */
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 22px 18px;
+}
+
+.row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.space-between{ justify-content: space-between; }
+
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+
+.grid-4{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:14px;
+}
+
+/* ---------- Header (glassy, modern) ---------- */
+.header{
+  position: sticky;
+  top:0;
+  z-index: 10;
+  background: rgba(245, 247, 251, 0.70);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line2);
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  color: #fff;
+
+  /* Gradient badge */
+  background: radial-gradient(120% 140% at 20% 10%, rgba(255,255,255,0.35) 0%, transparent 40%),
+              linear-gradient(135deg, var(--accent) 0%, #8b5cf6 45%, var(--accent3) 100%);
+  box-shadow: 0 14px 28px rgba(109,94,252,0.22);
+  border: 1px solid rgba(255,255,255,0.28);
+  transition: tranform 150 ms ease;
+}
+
+.brand-name{
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-tag{
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.nav{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+}
+
+.brand:hover .logo{
+  transform: scale(1.04);
+}
+
+/* ---------- Views ---------- */
+.view{ display:none; }
+.view.active{ display:block; }
+
+/* ---------- Typography ---------- */
+h1{
+  margin: 0 0 10px 0;
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+h2{
+  margin: 12px 0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+h3{
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+h4{
+  margin: 18px 0 8px 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(15,23,42,0.70);
+}
+
+.muted{ color: var(--muted); }
+
+/* ---------- Hero (product-like) ---------- */
+.hero{
+  padding: 28px;
+  border-radius: calc(var(--radius) + 6px);
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(1200px 400px at 0% 0%, rgba(109, 94, 252, 0.16) 0%, transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
+    rgba(255,255,255,0.72);
+
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: var(--shadow2);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(109,94,252,0.45), rgba(34,197,94,0.25), rgba(6,182,212,0.25));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+.hero p{
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.cta-row{
+  display:flex;
+  gap:12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Cards ---------- */
+.card{
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: var(--shadow1);
+  backdrop-filter: blur(12px);
+}
+
+.card.program{
+  cursor: default;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  position: relative;
+  overflow:hidden;
+}
+
+.card.program::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: radial-gradient(closest-side, rgba(109,94,252,0.12), transparent 65%);
+  transform: translate(60%, -40%);
+  pointer-events:none;
+}
+
+.card.program:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px rgba(15,23,42,0.12);
+  border-color: rgba(109,94,252,0.22);
+}
+
+.list{
+  margin: 10px 0 0 18px;
+  color: var(--muted);
+}
+.list li{ margin: 6px 0; }
+
+/* ---------- Stats row ---------- */
+.stat{
+  padding: 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.60);
+  border: 1px solid rgba(15,23,42,0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow3);
+}
+
+.stat-big{
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.stat .muted{
+  font-size: 13px;
+}
+
+/* ---------- Fields ---------- */
+.field{
+  display:flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field span{
+  font-size: 13px;
+  color: rgba(15,23,42,0.72);
+}
+
+input,select{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.82);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+}
+
+input::placeholder{ color: rgba(102,112,133,0.85); }
+
+input:focus,select:focus{
+  border-color: rgba(109,94,252,0.45);
+  box-shadow: var(--focus);
+}
+
+/* ---------- Buttons (modern) ---------- */
+button{
+  border: 1px solid rgba(15,23,42,0.10);
+  background: rgba(255,255,255,0.70);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: transform 120ms ease, filter 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+button:hover{
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.08);
+}
+
+button:active{ transform: translateY(1px); }
+
+.primary{
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 45%, var(--accent3) 100%);
+  box-shadow: 0 18px 30px rgba(109,94,252,0.18);
+}
+
+.primary:hover{
+  filter: brightness(1.04);
+  box-shadow: 0 22px 40px rgba(109,94,252,0.22);
+}
+
+.secondary{
+  background: rgba(109,94,252,0.10);
+  border: 1px solid rgba(109,94,252,0.20);
+  color: #3b2bbd;
+}
+
+.ghost{
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+}
+
+.ghost:hover{
+  background: rgba(15,23,42,0.05);
+  border-color: rgba(15,23,42,0.06);
+  box-shadow: none;
+}
+
+/* ---------- Pills / Tags ---------- */
+.pill{
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.10);
+  color: rgba(15,23,42,0.70);
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(10px);
+}
+
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin: 10px 0;
+}
+
+.tag{
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(109,94,252,0.10);
+  border: 1px solid rgba(109,94,252,0.18);
+  color: #3b2bbd;
+}
+
+/* ---------- Notice (supportive) ---------- */
+.notice{
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(34,197,94,0.22);
+  background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(6,182,212,0.08));
+  color: rgba(15,23,42,0.92);
+}
+
+/* ---------- Footer ---------- */
+.footer{
+  border-top: 1px solid rgba(15,23,42,0.06);
+  margin-top: auto;
+}
+
+.tiny{
+  font-size: 12px;
+  color: rgba(102,112,133,0.95);
+}
+
+/* ---------- Modal (more premium) ---------- */
+.modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.52);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.modal.hidden{ display:none; }
+
+.modal-card{
+  width: min(650px, 100%);
+  border-radius: 22px;
+  padding: 16px;
+  background:
+    radial-gradient(900px 320px at 0% 0%, rgba(109,94,252,0.14) 0%, transparent 60%),
+    rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 30px 90px rgba(2,6,23,0.35);
+  backdrop-filter: blur(14px);
+}
+
+/* ---------- Responsiveness ---------- */
+@media (max-width: 980px){
+  h1{ font-size: 34px; }
+}
+
+@media (max-width: 860px){
+  .grid-2{ grid-template-columns: 1fr; }
+  .grid-4{ grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Optional: reduce motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===============================
+   Spacing Tightening Patch
+   =============================== */
+
+/* Reduce overall vertical padding */
+.container{
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* Hero: slightly tighter */
+.hero{
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+/* Bring stats closer to hero */
+.grid-4{
+  margin-top: 12px;
+}
+
+/* Reduce empty space before footer */
+main.container{
+  padding-bottom: 8px;
+}
+
+/* Footer closer, still breathable */
+.footer{
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Headings slightly tighter */
+h1{
+  margin-bottom: 8px;
+}
+
+.hero p{
+  margin-bottom: 14px;
+}
+
+/* #view-home{
+  margin-top: -6px;
+} */
+
+/* ===============================
+   Home spacing: no-scroll, no giant gap
+   =============================== */
+
+/* Don’t force #view-home to be tall */
+#view-home{
+  min-height: 0;
+  display: block;
+}
+
+/* Reduce vertical padding globally (this is what creates the “gap feel”) */
+main.container{
+  padding-top: 14px;
+  padding-bottom: 10px;
+}
+
+/* Make the hero + stats sit higher and tighter */
+#view-home .hero{
+  margin-top: 8px;
+  padding: 22px;
+}
+
+#view-home .grid-4{
+  margin-top: 12px;
+}
+
+/* Make stats slightly shorter */
+#view-home .stat{
+  padding: 12px;
+}
+
+/* Footer stays at bottom but doesn’t create a big “section” */
+.footer{
+  margin-top: auto;
+  padding: 10px 0;
+}
+
+/* Prevent accidental scroll caused by tiny overflows */
+body{
+  overflow-x: hidden;
+}
+
+
+.feedback-fab{
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6d5efc, #8b5cf6);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 16px 36px rgba(109,94,252,0.35);
+  z-index: 50;
+}
+.feedback-fab:hover{
+  filter: brightness(1.05);
+}

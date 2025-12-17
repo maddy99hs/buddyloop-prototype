@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuddyLoop – Find Your Buddy</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container row">
+      <div class="brand" data-nav="home" style="cursor: pointer;">
+        <div class="logo">∞</div>
+        <div>
+            <div class="brand-name">BuddyLoop</div>
+            <div class="brand-tag">Find a buddy for your first weeks in a new place</div>
+        </div>
+    </div>
+
+
+      <nav class="nav">
+        <button class="ghost" data-nav="home">Home</button>
+        <button class="ghost" data-nav="programs">Programs</button>
+        <button class="ghost" data-nav="match">Get matched</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="view-home" class="view active">
+      <div class="hero">
+        <h1>Support that feels human.</h1>
+        <p class="muted">
+          Choose the kind of buddy you need: cultural, city navigation, daily-life support, or university onboarding.
+        </p>
+        <div class="cta-row">
+          <button class="primary" data-nav="programs">Explore Programs</button>
+          <button class="secondary" data-nav="match">Get Matched</button>
+        </div>
+      </div>
+
+      <div class="grid-4" style="margin-top: 18px;">
+        <div class="stat">
+          <div class="stat-big">4</div>
+          <div class="muted">Programs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">15m</div>
+          <div class="muted">Average setup time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">Safe</div>
+          <div class="muted">Public meetup guidance</div>
+        </div>
+        <div class="stat">
+          <div class="stat-big">Free</div>
+          <div class="muted">Optional appreciation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="view-programs" class="view">
+      <div class="row space-between">
+        <h2>Pick a Buddy Program</h2>
+        <div class="pill">Prototype</div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card program" data-program="cultural">
+          <h3>Cultural Buddy</h3>
+          <p class="muted">Learn typical customs, etiquette, everyday norms, and “how people do things here”.</p>
+          <ul class="list">
+            <li>Social norms + small talk</li>
+            <li>Food, festivals, local habits</li>
+            <li>Workplace culture basics</li>
+          </ul>
+          <div class="row">
+            <button class="primary" data-open-program="cultural">View</button>
+            <button class="ghost" data-start-match="cultural">Get matched</button>
+          </div>
+        </article>
+
+        <article class="card program" data-program="city">
+          <h3>City Buddy</h3>
+          <p class="muted">Get oriented: transport, tickets, maps, key places, and how to move confidently.</p>
+          <ul class="list">
+            <li>Bus/tram/train basics</li>
+            <li>Finding services & stores</li>
+            <li>City rules (waste/quiet hours)</li>
+          </ul>
+          <div class="row">
+            <button class="primary" data-open-program="city">View</button>
+            <button class="ghost" data-start-match="city">Get matched</button>
+          </div>
+        </article>
+
+        <article class="card program" data-program="daily">
+          <h3>Daily Life Buddy</h3>
+          <p class="muted">Support for essential tasks: doctor prep, bank visits, appointments and forms.</p>
+          <ul class="list">
+            <li>Appointment preparation</li>
+            <li>How systems work (waiting, paperwork)</li>
+            <li>Emotional support + navigation</li>
+          </ul>
+          <div class="row">
+            <button class="primary" data-open-program="daily">View</button>
+            <button class="ghost" data-start-match="daily">Get matched</button>
+          </div>
+        </article>
+
+        <article class="card program" data-program="uni">
+          <h3>University Buddy</h3>
+          <p class="muted">Short-term onboarding: campus, portals, schedules, deadlines, and first-week confusion.</p>
+          <ul class="list">
+            <li>Campus orientation</li>
+            <li>Uni portals + email + exams</li>
+            <li>First week / first month only</li>
+          </ul>
+          <div class="row">
+            <button class="primary" data-open-program="uni">View</button>
+            <button class="ghost" data-start-match="uni">Get matched</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROGRAM DETAIL -->
+    <section id="view-program" class="view">
+      <button class="ghost" data-nav="programs">← Back to programs</button>
+      <div class="card" style="margin-top: 10px;">
+        <div class="row space-between">
+          <div>
+            <h2 id="programTitle">Program</h2>
+            <p id="programDesc" class="muted"></p>
+          </div>
+          <div class="pill" id="programPill">Program</div>
+        </div>
+
+        <h4>What you can expect</h4>
+        <ul id="programBullets" class="list"></ul>
+
+        <div class="notice">
+          <strong>Safety:</strong> First meetings should be in public places. No money handling. No legal/medical advice.
+        </div>
+
+        <div class="row">
+          <button class="primary" id="programMatchBtn">Get matched</button>
+          <button class="secondary" data-nav="home">Go home</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATCH FORM -->
+    <section id="view-match" class="view">
+      <div class="row space-between">
+        <h2>Get matched</h2>
+        <div class="pill" id="matchProgramPill">Any Program</div>
+      </div>
+
+      <form id="matchForm" class="card">
+        <div class="grid-2">
+          <label class="field">
+            <span>Program</span>
+            <select id="programSelect" required>
+              <option value="any">Any</option>
+              <option value="cultural">Cultural Buddy</option>
+              <option value="city">City Buddy</option>
+              <option value="daily">Daily Life Buddy</option>
+              <option value="uni">University Buddy</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Preferred language</span>
+            <select id="languageSelect" required>
+              <option value="english">English</option>
+              <option value="german">German</option>
+              <option value="kannada">Kannada</option>
+              <option value="hindi">Hindi</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>City (prototype)</span>
+            <input id="cityInput" placeholder="e.g., Schmalkalden" />
+          </label>
+
+          <label class="field">
+            <span>Availability</span>
+            <select id="availabilitySelect" required>
+              <option value="weekday-evenings">Weekday evenings</option>
+              <option value="weekends">Weekends</option>
+              <option value="weekday-days">Weekday daytime</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Support needed (short)</span>
+            <input id="needsInput" placeholder="e.g., bus tickets + anmeldung + doctor appointment" />
+          </label>
+
+          <label class="field">
+            <span>Meeting type</span>
+            <select id="meetingSelect" required>
+              <option value="chat">Chat</option>
+              <option value="call">Call</option>
+              <option value="public-meet">Public meetup</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <button class="primary" type="submit">See matches</button>
+          <button class="ghost" type="button" data-nav="programs">Browse programs</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="view-results" class="view">
+      <button class="ghost" data-nav="match">← Edit match</button>
+      <div class="row space-between" style="margin-top: 10px;">
+        <h2>Your matches</h2>
+        <div class="pill" id="resultsMeta">3 matches</div>
+      </div>
+
+      <div id="resultsList" class="grid-2" style="margin-top: 10px;"></div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="row space-between">
+        <h3 id="modalName">Buddy</h3>
+        <button class="ghost" id="modalClose">✕</button>
+      </div>
+      <p id="modalBio" class="muted"></p>
+      <div class="tags" id="modalTags"></div>
+
+      <div class="notice" id="modalSafety">
+        <strong>Tip:</strong> Keep first meetings in public places. Use in-app chat first.
+      </div>
+
+      <div class="row">
+        <button class="primary" id="modalRequest">Request buddy</button>
+        <button class="secondary" id="modalMessage">Message</button>
+      </div>
+      <p class="tiny muted">Prototype only — buttons do not send real requests.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container tiny muted">
+      BuddyLoop Prototype • UI-only • No data stored
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+
+  <a
+    href="https://forms.gle/cd9MNPrUAnHVc8eEA"
+    target="_blank"
+    rel="noopener"
+    class="feedback-fab">Feedback
+</a>
+
+
+</body>
+</html>
