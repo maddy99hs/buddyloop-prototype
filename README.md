@@ -14,6 +14,7 @@ Features:
 
 Tech stack: HTML, CSS, vanilla JavaScript (no frameworks).
 
-⚠️ This is a front-end prototype created for a design thinking course.
+Note:
+This is a front-end prototype created for a design thinking course.
 There is no user authentication, no real messaging, and no data is stored.
 
