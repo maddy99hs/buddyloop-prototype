@@ -31,7 +31,7 @@ The prototype focuses on:
   – Cultural Buddy  
   – City Buddy  
   – Daily Life Buddy  
-  – University Buddy :contentReference[oaicite:0]{index=0}  
+  – University Buddy
 
 - **Guided matching flow**  
   “Get matched” form with:
@@ -40,20 +40,19 @@ The prototype focuses on:
   - Availability  
   - City (prototype only)  
   - Short description of what you need  
-  - Preferred meeting type (chat / call / public meetup) :contentReference[oaicite:1]{index=1}  
+  - Preferred meeting type (chat / call / public meetup)
 
 - **Simple matching logic**  
   A small buddy dataset is filtered by:
   - program
   - language
   - availability  
-  and returns up to 3 matches. :contentReference[oaicite:2]{index=2}  
-
+  and returns up to 3 matches.
 - **Buddy profiles in a modal**  
   Each match has:
   - name + short bio  
   - tags (style, strengths, vibe)  
-  - “Request buddy” / “Message” buttons that trigger **prototype alerts** instead of real actions. :contentReference[oaicite:3]{index=3}  
+  - “Request buddy” / “Message” buttons that trigger **prototype alerts** instead of real actions.
 
 - **Safety & boundaries baked into UI**  
   - Safety notice in the program detail view  
