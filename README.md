@@ -64,9 +64,9 @@ The prototype focuses on:
 
 ## Tech Stack
 
-- HTML5 (single-page layout, sections as “views”) :contentReference[oaicite:5]{index=5}  
-- CSS3 with a modern, glassy product-style UI theme :contentReference[oaicite:6]{index=6}  
-- Vanilla JavaScript (no frameworks) for view routing, matching logic, and modal behaviour :contentReference[oaicite:7]{index=7}  
+- HTML5 (single-page layout, sections as “views”)
+- CSS3 with a modern, glassy product-style UI theme
+- Vanilla JavaScript (no frameworks) for view routing, matching logic, and modal behaviour
 
 
 
